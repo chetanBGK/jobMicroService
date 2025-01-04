@@ -8,5 +8,6 @@ public interface ReviewService {
     Review updateReview( int rid,Review review);
     String deleteReview( int rid);
     List<Review> getAllReviews(int companyId);
+//    List<Review> getReviewsByCompanyId(int companyId);
     
 }

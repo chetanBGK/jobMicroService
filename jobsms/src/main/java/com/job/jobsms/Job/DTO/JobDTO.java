@@ -2,6 +2,7 @@ package com.job.jobsms.Job.DTO;
 
 import com.job.jobsms.Job.Job;
 import com.job.jobsms.Job.external.Company;
+import com.job.jobsms.Job.external.Review;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +10,15 @@ import java.util.List;
 public class JobDTO {
     private Job job;
     private Company company;
+    private List<Review> review;
+
+    public List<Review> getReview() {
+        return review;
+    }
+
+    public void setReview(List<Review> review) {
+        this.review = review;
+    }
 
     public Job getJob() {
         return job;

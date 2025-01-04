@@ -64,5 +64,6 @@ public class ReviewImpl implements ReviewService {
         List<Review> reviews = reviewRepo.findByCompanyId(companyId);
         return reviews;
     }
-    
+
+
 }

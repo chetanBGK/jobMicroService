@@ -28,8 +28,8 @@ public class ReviewController {
         return reviewService.getAllReviews(companyId);
     }
 
-    @GetMapping("getreviewbyid/{rid}")
-    public Review getReviewById(@PathVariable int rid) {
+    @GetMapping("getreviewbyid")
+    public Review getReviewById(@RequestParam int rid) {
 
         return reviewService.getReviewById(rid);
     }

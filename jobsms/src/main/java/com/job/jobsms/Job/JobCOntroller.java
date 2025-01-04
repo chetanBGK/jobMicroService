@@ -29,7 +29,7 @@ public class JobCOntroller {
     }
 
     @GetMapping("getjobbyid/{id}")
-    public Job getJobById(@PathVariable int id) {
+    public JobDTO getJobById(@PathVariable int id) {
         return jobService.getJobById(id);
     }
 

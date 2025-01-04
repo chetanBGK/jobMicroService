@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface JobService {
     Job createJob(Job job);
-    Job getJobById(int id);
+    JobDTO getJobById(int id);
     Job updateJob(int id, Job job);
     void deleteJob(int id);
     List<JobDTO> getAllJobs();
