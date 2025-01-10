@@ -45,14 +45,14 @@ public class JobServiceImpl implements JobService {
         jobDTO.setCompany(company);
         jobDTO.setJob(job);
 
-//        ResponseEntity<List<Review>> review=restTemplate.exchange(
-//                "http://REVIEW-PACKAGE:8082/review/getreviewbyid?rid="+job.getCompanyId()
-//                , HttpMethod.GET
-//                , null
-//                ,new ParameterizedTypeReference<List<Review>> (){});
+        ResponseEntity<List<Review>> review=restTemplate.exchange(
+                "http://REVIEW-PACKAGE:8082/review?companyId="+job.getCompanyId()
+                , HttpMethod.GET
+                , null
+                ,new ParameterizedTypeReference<List<Review>> (){});
 
-//        List<Review> reviews=review.getBody();
-//        jobDTO.setReview(reviews);
+        List<Review> reviews=review.getBody();
+        jobDTO.setReview(reviews);
         return jobDTO;
     }
 
@@ -87,14 +87,17 @@ public class JobServiceImpl implements JobService {
                     .getForObject("http://COMPANY-PACKAGE:8081/company/getcompanybyid/"+job.getCompanyId()
                             , Company.class);
 
-//            ResponseEntity<List<Review>> review=restTemplate.exchange(
-//                    "http://REVIEW-PACKAGE:8082/review/getreviewbyid?rid="+job.getCompanyId()
-//                    , HttpMethod.GET
-//                    , null
-//                    ,new ParameterizedTypeReference<List<Review>> (){});
+            ResponseEntity<List<Review>> reviews=
+                    restTemplate.exchange(
+                            "http://REVIEW-PACKAGE:8082/review/getallreview?companyId=" + job.getCompanyId()
+                            , HttpMethod.GET
+                            , null
+                            , new ParameterizedTypeReference<List<Review>>() {
+                            });
 
-//            List<Review> reviews=review.getBody();
-//            jobDTO.setReview(reviews);
+
+            List<Review> reviewList=reviews.getBody();
+            jobDTO.setReview(reviewList);
             jobDTO.setCompany(company);
 
             jobDTOs.add(jobDTO);

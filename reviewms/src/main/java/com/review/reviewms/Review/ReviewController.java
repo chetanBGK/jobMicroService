@@ -43,5 +43,14 @@ public class ReviewController {
     public void deleteReview(@PathVariable int cid,@PathVariable int rid) {
         reviewService.deleteReview(rid);
     }
-    
+
+    @GetMapping()
+    public List<Review> getReviewByCompanyId(@RequestParam int companyId) {
+        return reviewService.getReviewsByCompanyId(companyId);
+    }
+
+    @GetMapping("listallreviews")
+    public List<Review> listAllReviews() {
+        return reviewService.listAllReviews();
+    }
 }

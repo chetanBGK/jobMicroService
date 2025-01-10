@@ -65,5 +65,15 @@ public class ReviewImpl implements ReviewService {
         return reviews;
     }
 
+    @Override
+    public List<Review> getReviewsByCompanyId(int companyId) {
+        return reviewRepo.findByCompanyId(companyId);
+    }
+
+    @Override
+    public List<Review> listAllReviews() {
+        return reviewRepo.findAll();
+    }
+
 
 }
